@@ -55,8 +55,8 @@ class StudentsController < ApplicationController
     private
 
     def student_params
-    # params.expect(student: [ :first_name, :last_name, :email, :date_of_birth, :address, :contact ])
     params.require(:student).permit(:first_name, :last_name, :email, :date_of_birth, :address, :contact, :profile_image)
+    # params.expect(student: [ :first_name, :last_name, :email, :date_of_birth, :address, :contact ])
     # params.require(:student).permit(:first_name, :last_name, :email, :date_of_birth, :address, :contact, posts_attributes: [:title, :content])
     end
     
