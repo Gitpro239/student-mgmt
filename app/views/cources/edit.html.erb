@@ -1,0 +1,12 @@
+<% content_for :title, "Editing cource" %>
+
+<h1>Editing cource</h1>
+
+<%= render "form", cource: @cource %>
+
+<br>
+
+<div>
+  <%= link_to "Show this cource", @cource %> |
+  <%= link_to "Back to cources", cources_path %>
+</div>

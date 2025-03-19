@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @cource %>
+
+<div>
+  <%= link_to "Edit this cource", edit_cource_path(@cource) %> |
+  <%= link_to "Back to cources", cources_path %>
+
+  <%= button_to "Destroy this cource", @cource, method: :delete %>
+</div>

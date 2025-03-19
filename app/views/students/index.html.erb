@@ -1,0 +1,249 @@
+
+<%= search_form_for @q, url: :students do |form| %>
+
+ <div class="form-group">
+  <%= form.label :first_name %>
+  <%= form.text_field :first_name_cont, class: "form-control" %>
+ </div>
+
+ <div class="form-group">
+  <%= form.submit class: "btn btn-primary" %>
+ </div>
+
+<% end %>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Listing Students</h1>
+
+<td> <%= link_to 'New Student', new_student_path, class: "btn btn-outline-primary"  %> </td>
+<table class="table table-bordered">
+<thead class="text-center">
+<tr>
+<th>Student Id</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Date Of Birth</th>
+<th>Age</th>
+<th>Address</th>
+<th>Contact</th>
+<th>Created Time</th>
+<th colspan="3">Action</th>
+</tr>
+</thead>
+<tbody class="text-center">
+<% @students.each do |student| %>
+    <tr>
+        <td><%= student.id %></td>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.date_of_birth %></td>
+        <td><%= student.age %></td>
+        <td><%= student.address %></td>
+        <td><%= student.contact %></td>
+        <td><%= student.created_at %></td>
+        <td> <%= link_to 'View', student , class: "btn btn-primary" %> </td>
+        <td> <%= link_to 'Edit', edit_student_path(student) , class: "btn btn-info" %> </td>
+        <td> <%= button_to 'Delete', student, method: :delete, 
+        data: { confirm: 'Are you sure?'}, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>
+</tbody>
+</table>
+
+<td> <%= paginate @students %> </td>
+
+<%# filter Method Use to filter record %>
+<h1>Filter Students By Age</h1>
+
+<table class="table table-bordered">
+<thead class="text-center">
+<tr>
+<th>Student Id</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Date Of Birth</th>
+<th>Age</th>
+<th>Address</th>
+<th>Contact</th>
+<th>Created Time</th>
+<th colspan="3">Action</th>
+</tr>
+</thead>
+<tbody class="text-center">
+<% @filtered_students.each do |student| %>
+    <tr>
+        <td><%= student.id %></td>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.date_of_birth %></td>
+        <td><%= student.age %></td>
+        <td><%= student.address %></td>
+        <td><%= student.contact %></td>
+        <td><%= student.created_at %></td>
+        <td> <%= link_to 'View', student , class: "btn btn-primary" %> </td>
+        <td> <%= link_to 'Edit', edit_student_path(student) , class: "btn btn-info" %> </td>
+        <td> <%= button_to 'Delete', student, method: :delete, 
+        data: { confirm: 'Are you sure?'}, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>
+</tbody>
+</table>
+
+<td> <%= paginate @students %> </td>
+
+
+<%# Where Method Use to filter record %>
+<h1>Filter Students By Age with where</h1>
+
+<table class="table table-bordered">
+<thead class="text-center">
+<tr>
+<th>Student Id</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Date Of Birth</th>
+<th>Age</th>
+<th>Address</th>
+<th>Contact</th>
+<th>Created Time</th>
+<th colspan="3">Action</th>
+</tr>
+</thead>
+<tbody class="text-center">
+<% @filtered_students_where.each do |student| %>
+    <tr>
+        <td><%= student.id %></td>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.date_of_birth %></td>
+        <td><%= student.age %></td>
+        <td><%= student.address %></td>
+        <td><%= student.contact %></td>
+        <td><%= student.created_at %></td>
+        <td> <%= link_to 'View', student , class: "btn btn-primary" %> </td>
+        <td> <%= link_to 'Edit', edit_student_path(student) , class: "btn btn-info" %> </td>
+        <td> <%= button_to 'Delete', student, method: :delete, 
+        data: { confirm: 'Are you sure?'}, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>
+</tbody>
+</table>
+
+<td> <%= paginate @students %> </td>
+
+
+<%# Where and order Method Use to filter record %>
+<h1>Filter Students By Age with order</h1>
+
+<table class="table table-bordered">
+<thead class="text-center">
+<tr>
+<th>Student Id</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Date Of Birth</th>
+<th>Age</th>
+<th>Address</th>
+<th>Contact</th>
+<th>Created Time</th>
+<th colspan="3">Action</th>
+</tr>
+</thead>
+<tbody class="text-center">
+<% @filtered_students_order.each do |student| %>
+    <tr>
+        <td><%= student.id %></td>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.date_of_birth %></td>
+        <td><%= student.age %></td>
+        <td><%= student.address %></td>
+        <td><%= student.contact %></td>
+        <td><%= student.created_at %></td>
+        <td> <%= link_to 'View', student , class: "btn btn-primary" %> </td>
+        <td> <%= link_to 'Edit', edit_student_path(student) , class: "btn btn-info" %> </td>
+        <td> <%= button_to 'Delete', student, method: :delete, 
+        data: { confirm: 'Are you sure?'}, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>
+</tbody>
+</table>
+
+<td> <%= paginate @students %> </td>
+
+
+<%# limit Method Use to filter record %>
+<h1>Filter Students By Age with limit</h1>
+
+<table class="table table-bordered">
+<thead class="text-center">
+<tr>
+<th>Student Id</th>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Date Of Birth</th>
+<th>Age</th>
+<th>Address</th>
+<th>Contact</th>
+<th>Created Time</th>
+<th colspan="3">Action</th>
+</tr>
+</thead>
+<tbody class="text-center">
+<% @limited_students.each do |student| %>
+    <tr>
+        <td><%= student.id %></td>
+        <td><%= student.first_name %></td>
+        <td><%= student.last_name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.date_of_birth %></td>
+        <td><%= student.age %></td>
+        <td><%= student.address %></td>
+        <td><%= student.contact %></td>
+        <td><%= student.created_at %></td>
+        <td> <%= link_to 'View', student , class: "btn btn-primary" %> </td>
+        <td> <%= link_to 'Edit', edit_student_path(student) , class: "btn btn-info" %> </td>
+        <td> <%= button_to 'Delete', student, method: :delete, 
+        data: { confirm: 'Are you sure?'}, class: "btn btn-danger" %></td>
+    </tr>
+<% end %>
+</tbody>
+</table>
+
+<td> <%= paginate @students %> </td>
+
+
+<%# distinct Method Use to filter record %>
+<h1>Filter Students By Age with distinct</h1>
+
+<table class="table table-bordered">
+<thead class="text-center">
+<tr>
+<th>Student Id</th>
+<th>Date Of Birth</th>
+<th>Age</th>
+</tr>
+</thead>
+<tbody class="text-center">
+<% @distinct_students_ages.each do |student| %>
+    <tr>
+        <td><%= student.id %></td>
+        <td><%= student.date_of_birth %></td>
+        <td><%= student.age %></td>
+    </tr>
+<% end %>
+</tbody>
+</table>
+
+<td> <%= paginate @students %> </td>
+

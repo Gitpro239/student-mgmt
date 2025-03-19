@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Cources" %>
+
+<h1>Cources</h1>
+
+<div id="cources">
+  <% @cources.each do |cource| %>
+    <%= render cource %>
+    <p>
+      <%= link_to "Show this cource", cource %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New cource", new_cource_path %>

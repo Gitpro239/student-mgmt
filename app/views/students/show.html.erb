@@ -1,0 +1,29 @@
+<div class="col-lg-5">
+<div class="card rounded-0 shadow px-2" >
+<% if @student.profile_image.attached? %>
+<%= image_tag @student.profile_image, class: "rounded-circle px-2 py-2", :style => "width:200px;max-height:300px;" %>
+<% end %>
+<p><%= notice %></p>
+<h1> Student Details </h1>
+<p><strong>Student Id: </strong><%= @student.id %></p>
+<p><strong>Name: </strong><%= @student.full_name %></p>
+<p><strong>First Name: </strong><%= @student.first_name %></p>
+<p><strong>Last Name: </strong><%= @student.last_name %></p>
+<p><strong>Email: </strong><%= @student.email %></p>
+<p><strong>Date Of Birth: </strong><%= formatted_date(@student.date_of_birth)%></p>
+<p><strong>Age: </strong><%= @student.age%></p>
+<p><strong>Address: </strong><%= @student.address %></p>
+<p><strong>Contact: </strong><%= @student.contact %></p>
+<p><strong>Created Time: </strong><%= @student.created_at %></p>
+
+<p><strong>Created Time: </strong><%= @student.created_at.strftime('%A, %b, %d, %Y') %></p>
+<p><strong>Created Time: </strong><%= @student.created_at.strftime('%d-%m-%Y') %></p>
+<p><strong>Created Time: </strong><%= @student.created_at.strftime('%H:%M:%S') %></p>
+
+<td> <%= link_to 'Back', students_path, class: "btn btn-success" %> </td> 
+<td> <%= link_to 'Edit', edit_student_path(@student), class: "btn btn-info" %> </td> 
+<td> <%= link_to 'Delete', students_path, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %> </td>
+
+ </div>
+</div>
+
