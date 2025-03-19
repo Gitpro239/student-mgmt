@@ -53,11 +53,13 @@ class StudentsController < ApplicationController
     end
     
     private
+
     def student_params
     # params.expect(student: [ :first_name, :last_name, :email, :date_of_birth, :address, :contact ])
     params.require(:student).permit(:first_name, :last_name, :email, :date_of_birth, :address, :contact, :profile_image)
     # params.require(:student).permit(:first_name, :last_name, :email, :date_of_birth, :address, :contact, posts_attributes: [:title, :content])
-  end
+    end
+    
     def set_student
       # @student = Student.find(params.expect(:id))
       @student = Student.find(params[:id])
